@@ -25,7 +25,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('decode.html', variable = encrypted, variable2 = iv)
+    return render_template('desciframe.html', variable = encrypted, variable2 = iv)
 
 if __name__ == '__main__':
     app.run(debug=True)
