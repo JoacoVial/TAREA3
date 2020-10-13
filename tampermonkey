@@ -1,3 +1,15 @@
+// ==UserScript==
+// @name         tarea3
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        http://127.0.0.1:5000/
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
 /*
 CryptoJS v3.1.2
 code.google.com/p/crypto-js
@@ -34,20 +46,6 @@ b.keySize,b.ivSize);l.iv=d.iv;b=a.encrypt.call(this,b,c,d.key,l);b.mixIn(d);retu
 8&255]]^n[l[k&255]]},encryptBlock:function(a,b){this._doCryptBlock(a,b,this._keySchedule,t,r,w,v,l)},decryptBlock:function(a,c){var d=a[c+1];a[c+1]=a[c+3];a[c+3]=d;this._doCryptBlock(a,c,this._invKeySchedule,b,x,q,n,s);d=a[c+1];a[c+1]=a[c+3];a[c+3]=d},_doCryptBlock:function(a,b,c,d,e,j,l,f){for(var m=this._nRounds,g=a[b]^c[0],h=a[b+1]^c[1],k=a[b+2]^c[2],n=a[b+3]^c[3],p=4,r=1;r<m;r++)var q=d[g>>>24]^e[h>>>16&255]^j[k>>>8&255]^l[n&255]^c[p++],s=d[h>>>24]^e[k>>>16&255]^j[n>>>8&255]^l[g&255]^c[p++],t=
 d[k>>>24]^e[n>>>16&255]^j[g>>>8&255]^l[h&255]^c[p++],n=d[n>>>24]^e[g>>>16&255]^j[h>>>8&255]^l[k&255]^c[p++],g=q,h=s,k=t;q=(f[g>>>24]<<24|f[h>>>16&255]<<16|f[k>>>8&255]<<8|f[n&255])^c[p++];s=(f[h>>>24]<<24|f[k>>>16&255]<<16|f[n>>>8&255]<<8|f[g&255])^c[p++];t=(f[k>>>24]<<24|f[n>>>16&255]<<16|f[g>>>8&255]<<8|f[h&255])^c[p++];n=(f[n>>>24]<<24|f[g>>>16&255]<<16|f[h>>>8&255]<<8|f[k&255])^c[p++];a[b]=q;a[b+1]=s;a[b+2]=t;a[b+3]=n},keySize:8});u.AES=p._createHelper(d)})();
 
-var iv = document.getElementsByClassName("iv")[0].id;
-iv = CryptoJS.enc.Hex.parse(iv)
-
-var key = "00000000000000000000000000000000";
-key = CryptoJS.enc.Hex.parse(key);
-
-const msg = document.getElementsByClassName("AES")[0].id;
-
-var decrypt = CryptoJS.AES.decrypt(msg, key, {
-  iv: iv,
-  mode: CryptoJS.mode.CBC,
-  padding: CryptoJS.pad.Pkcs7
-});
-
 function hex_to_ascii(str1)
  {
 	var hex = str1.toString();
@@ -58,4 +56,19 @@ function hex_to_ascii(str1)
 	return str;
  }
 
+var iv = document.getElementsByClassName("iv")[0].id;
+iv = CryptoJS.enc.Hex.parse(iv)
+
+var key = document.getElementsByClassName("iv")[0].id;
+key = CryptoJS.enc.Hex.parse(key);
+
+const msg = document.getElementsByClassName("AES")[0].id;
+
+var decrypt = CryptoJS.AES.decrypt(msg, key, {
+  iv: iv,
+  mode: CryptoJS.mode.CBC,
+  padding: CryptoJS.pad.Pkcs7
+});
+
 document.getElementById("descifrado").innerHTML = hex_to_ascii(decrypt);
+})();
