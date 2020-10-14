@@ -2,10 +2,10 @@
 // @name         tarea3
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  tarea de criptografia
+// @description  try to take over the world!
 // @author       You
 // @require      https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js
-// @updateURL    https://github.com/JoacoVial/TAREA3.git/tampermonkey
+// @updateURL    https://github.com/JoacoVial/TAREA3/blob/main/tampermonkey
 // @match        http://127.0.0.1:5000/
 // @grant        none
 // ==/UserScript==
@@ -24,10 +24,10 @@ function hex_to_ascii(str1)
  }
 
 var iv = document.getElementsByClassName("iv")[0].id;
-iv = CryptoJS.enc.Hex.parse(iv)
+var key = document.getElementsByClassName("key")[0].id;
 
-var key = document.getElementsByClassName("iv")[0].id;
-key = CryptoJS.enc.Hex.parse(key);
+iv = CryptoJS.enc.Utf8.parse(iv)
+key = CryptoJS.enc.Utf8.parse(key);
 
 const msg = document.getElementsByClassName("AES")[0].id;
 
