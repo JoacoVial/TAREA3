@@ -28,7 +28,7 @@ def home():
         if(len(key) == 16 | len(iv) == 16):
             aux = False
         else:
-            print("-----------------------------------\nLA LLAVE O EL VECTOR NO TIENEN 16 CARACTERES\n-----------------------------------")
+            print("--------------------------------------------\nLA LLAVE O EL VECTOR NO TIENEN 16 CARACTERES\n--------------------------------------------")
 
     cipher = AESCipher( bytes(key, 'utf-8'), bytes(iv, 'utf-8'))
     encrypted = cipher.encrypt(msg).decode('utf8') #se pasa el mensaje criptografia en utf-8
