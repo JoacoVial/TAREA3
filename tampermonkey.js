@@ -25,11 +25,10 @@ function hex_to_ascii(str1)
 
 var iv = document.getElementsByClassName("iv")[0].id;
 var key = document.getElementsByClassName("key")[0].id;
-
+const msg = document.getElementsByClassName("AES")[0].id;
+	
 iv = CryptoJS.enc.Utf8.parse(iv)
 key = CryptoJS.enc.Utf8.parse(key);
-
-const msg = document.getElementsByClassName("AES")[0].id;
 
 var decrypt = CryptoJS.AES.decrypt(msg, key, {
   iv: iv,
