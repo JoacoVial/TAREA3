@@ -25,7 +25,7 @@ def home():
         key = input("Ingrese la llave de 16 caracteres: ")
         iv = input("Ingrese el vector inicial de 16 caracteres: ")
         msg = input("Ingrese el mensaje: ")
-        if(len(key) == 16 | len(iv) == 16):
+        if(len(key) == 16 & len(iv) == 16):
             aux = False
         else:
             print("--------------------------------------------\nLA LLAVE O EL VECTOR NO TIENEN 16 CARACTERES\n--------------------------------------------")
